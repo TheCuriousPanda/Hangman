@@ -20,6 +20,8 @@ def blankword(l,s):
             output = output+"_"
     return output
 def userguess():
+    global numberofattempts
+    global a
     if c in rand_word:
         print("Good Guess!")
         letters.append(c)
@@ -27,12 +29,13 @@ def userguess():
     else:
         numberofattempts = numberofattempts+1
         a=attempts-numberofattempts
-        print("Sorry, that letter is not in the word\nYou have {} guesses left".format(a))
+        print("Sorry, that letter is not in the word\nYou have {} guesses left.".format(a))
         letters.append(c)
         print(blankword(letters,rand_word))
         return blankword(letters,rand_word)
+        return a
 while(True):
-    c=input("\nPlease enter a letter \n")
+    c=input("\nPlease enter a letter... \n")
     if c in rand_word:
         print(userguess())
     if c == rand_word:
@@ -40,4 +43,8 @@ while(True):
         break
     if userguess() == rand_word:
         print("Congratulations! You have figured out the word!")
+        break
+    if a == 0:
+        print("Sorry, you have run out of guesses.")
+        print("\nThe word was {}.".format(rand_word))
         break
