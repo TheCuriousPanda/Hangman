@@ -1,5 +1,5 @@
 import random
-file=open("C:/Users/Trey Yu/Python Tests/words.txt", 'r')
+file=open("C:/Users/Trey Yu/Documents/GitHub/Hangman/words.txt", 'r',)
 s=file.read()
 file.close()
 letters=[]
